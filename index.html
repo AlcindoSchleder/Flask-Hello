@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="font" href="{{ url_for('static', filename='fonts/FaunaOne-Regular.ttf') }}">
+{% endblock %}
+
+{% block content %}
+<!--
+    <section id="vengym_carousel" class="slide">
+        <img class="img-fluid d-block w-100 h-100" src="{{data[0]['path']}}" alt="{{data[0]['order']}} slide" />
+-->
+    <div id="vengym_carousel" class="carousel slide" data-ride="carousel" data-interval="5000" data-pause="false">
+        <div class="carousel-inner">
+            {% for idx in range(1, len) %}
+            {% if idx == 1 %}
+            <div class="carousel-item active">
+            {% else %}
+            <div class="carousel-item">
+            {% endif %}
+                <div class="content-title">
+                    <h5 class="product-price">R$ {{data[idx]['product_price']}}</h5>
+                    <p class="product-price-type">{{data[idx]['product_price_type']}}</p>
+                </div>
+                <img class="img-fluid d-block" src="{{data[idx]['path']}}" alt="{{data[idx]['order']}} slide" />
+                <div class="carousel-caption  text-left d-none d-md-block">
+                    <h5 class="product-title">{{data[idx]['product_title']}}</h5>
+                    <p class="product-description">{{data[idx]['product_description']}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="qrcode-background">
+        <div class="qrcode-message">
+            CONECTE ESSA MÁQUINA LENDO O QR CODE
+            <div class="qrcode-arrow">
+                <span class="fas fa-arrow-right"></span>
+            </div>
+            <img class="img-fluid qrcode-anim" src="{{ url_for('static', filename='img/leitura_QRcode.gif') }}" />
+        </div>
+        <div class="div-qrcode">
+            <img class="img-fluid img-qrcode" src="{{ qrcode(data[0], error_correction='H', box_size=8, border=2, factor=3, icon_img='http://localhost:5000/static/img/vengym.png') }}">
+        </div>
+    </div>
+{% endblock %}

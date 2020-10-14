@@ -1,0 +1,11 @@
+behave==1.2.6
+click==7.1.2
+Flask==1.1.2
+itsdangerous==1.1.0
+Jinja2==2.11.2
+MarkupSafe==1.1.1
+parse==1.18.0
+parse-type==0.5.2
+pycrypto==2.6.1
+six==1.15.0
+Werkzeug==1.0.1

@@ -1,0 +1,19 @@
+html {
+    font-family: 'Roboto', Verdana, Arial, Helvetica, Times, sans-serif;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+}
+.content {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
