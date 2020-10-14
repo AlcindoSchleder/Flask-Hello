@@ -13,6 +13,15 @@ ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
 
 def before_feature(context, feature):
     # Register all Blueprint
+    
+    ####### Adicionando o registro do endpoint ######
+    from workspace.home.view import HomeRoute
+    ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
+    server.server_app.add_url_rule(
+        '/', view_func=HomeRoute.as_view('home'),
+        methods=['GET']
+    )
+    ################################################
     context.flask = server.server_app
     context.flask.testing = True
     context.flask_context = context.flask.test_request_context()
